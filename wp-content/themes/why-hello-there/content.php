@@ -2,14 +2,14 @@
 
     <?php whyhellothere_post_thumbnail(); ?>
 
-    <?php if ( is_single() ): ?> 
-      <div class="author-info">
-        <?php 
-          echo get_avatar( get_the_author_meta( 'ID' ), 90 ); 
-          echo '<a class="name" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author">' . get_the_author() . '</a>';
-        ?>
-      </div> 
-    <?php endif; ?>
+<!--    --><?php //if ( is_single() ): ?><!-- -->
+<!--      <div class="author-info">-->
+<!--        --><?php //
+//          echo get_avatar( get_the_author_meta( 'ID' ), 90 );
+//          echo '<a class="name" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author">' . get_the_author() . '</a>';
+//        ?>
+<!--      </div> -->
+<!--    --><?php //endif; ?>
 
     <div class="content-wrapper">
 

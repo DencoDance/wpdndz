@@ -7,7 +7,7 @@
       <footer id="footer">
       	<div class="footer-inner">
       		<div class="container">
-        		Copyright 2015 <?php bloginfo( 'name' ); ?> Илюха - норм дядя, настроил Жекану все! Спасибо ему за это!
+        		Copyright 2015 <?php bloginfo( 'name' ); ?>
         	</div>
         </div>
       </footer><!-- #footer-->
