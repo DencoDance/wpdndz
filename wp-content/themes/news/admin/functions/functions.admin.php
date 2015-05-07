@@ -61,7 +61,7 @@ function optionsframework_admin_message() {
 function of_get_header_classes_array() 
 {
 	global $of_options;
-	
+
 	foreach ($of_options as $value) 
 	{
 		if ($value['type'] == 'heading')

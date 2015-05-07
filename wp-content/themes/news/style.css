@@ -215,7 +215,8 @@ nav.is-sticky#nav{
 	position:relative;
 }
 .slider2 img, .slider3 img{
-	max-width:100%;
+	/*max-width:100%;*/
+    min-width: 100%;
 }
 .caption {
     background: url(framework/img/pixel.png) repeat;

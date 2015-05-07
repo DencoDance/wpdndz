@@ -4,8 +4,10 @@
                     <?php
 						$cat_name = $admin_data['m2_category'];
 						$tente = get_cat_ID( $cat_name );
-						 query_posts('category_name='.$cat_name);
-								
+//						 query_posts('category_name='.$cat_name);
+						 query_posts('category_name='.get_category($tente)->slug);
+//						 query_posts(get_category($tente)->slug);
+
 					?>
                     
                     <div class="column-two-third">
@@ -20,11 +22,9 @@
                         
                         
                         <?php
-
 							$i = 0;
-							
 							while (have_posts()) : the_post();
-							  
+
 							$i++;
 							if ($i <= 1) {
 						?>
@@ -32,15 +32,16 @@
                         	<?php the_post_thumbnail('main-medium-thumb'); ?>
                             <h6 class="regular"><a href="<?php the_permalink();?>"><?php the_title();?></a></h6>
 							<span class="meta"><?php the_time(get_option('date_format')); ?>  &nbsp; // &nbsp;  <?php the_category(', '); ?>  &nbsp;  //  &nbsp; <?php comments_popup_link(__( 'No Comment', 'framework' ),__( '1 comment', 'framework' ),__( '% Comments', 'framework' ),'',__( 'Comments are off', 'framework' )); ?> </span>
-                            <p><?php echo substr(get_the_excerpt(), 0, 250); ?> ... </p>
+                            <p><?php echo get_the_excerpt(150); ?> </p>
                         </div>
                         <?php } 
 								endwhile;
 							wp_reset_query();?>	
                         
                         
-                        <?php query_posts('offset=1&category_name='.$cat_name); ?>
-                        
+<!--                        --><?php //query_posts('offset=1&category_name='.$cat_name); ?>
+                        <?php query_posts('offset=1&category_name='.get_category($tente)->slug); ?>
+
                         <div class="outertight m-r-no">
                         	
                         	<ul class="block" id="carousel">
@@ -58,7 +59,7 @@
                                     <a href="<?php the_permalink();?>"><?php the_post_thumbnail('main-small-thumb'); ?></a>
                                     <p>
                                         <span><?php the_time(get_option('date_format')); ?>.</span>
-                                        <a href="<?php the_permalink();?>"><?php echo substr(get_the_title(), 0, 41); ?> ...</a>
+                                        <a href="<?php the_permalink();?>"><?php echo get_the_excerpt(get_the_title(),50); ?> ...</a>
                                     </p>
                                     <?php
 										$mypassion_review_enable =  get_post_meta(get_the_ID(), 'mypassion_review_enable', true);

@@ -6,8 +6,8 @@
 						$cat_name = $admin_data['m3_category'];
 						$tente = get_cat_ID( $cat_name );
 
-						 query_posts('category_name='.$cat_name);
-								
+//						 query_posts('category_name='.$cat_name);
+                            query_posts('category_name='.get_category($tente)->slug);
 					?>
                     <div class="column-two-third">
                     	<h5 class="line">
@@ -24,6 +24,7 @@
                             
                             	<?php
 
+//                                var_dump($wp_query);
 									$i = 0;
 									
 									while (have_posts()) : the_post();
@@ -45,7 +46,8 @@
                         </div>
                         
                         
-                        <?php query_posts('offset='.$admin_data['m3_maxnumberofposts'].'&category_name='.$cat_name); ?>
+<!--                        --><?php //query_posts('offset='.$admin_data['m3_maxnumberofposts'].'&category_name='.$cat_name); ?>
+                        <?php query_posts('offset='.$admin_data['m3_maxnumberofposts'].'&category_name='.get_category($tente)->slug); ?>
                         <div class="outerwide">
                         	<ul class="block2">
                             	

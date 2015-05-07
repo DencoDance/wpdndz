@@ -6,8 +6,9 @@
 						$cat_name = $admin_data['m4_category1'];
 						$tente = get_cat_ID( $cat_name );
 
-						 query_posts('category_name='.$cat_name);
-								
+//						 query_posts('category_name='.$cat_name);
+
+                    query_posts('category_name='.get_category($tente)->slug);
 					?>
                     <div class="column-two-third">
                     	<div class="outertight">
@@ -81,8 +82,9 @@
 							$cat_name = $admin_data['m4_category2'];
 							$tente = get_cat_ID( $cat_name );
 	
-							 query_posts('category_name='.$cat_name);
-									
+//							 query_posts('category_name='.$cat_name);
+
+                                            query_posts('category_name='.get_category($tente)->slug);
 						?>
                         <div class="outertight m-r-no">
                         	<h5 class="line"><span><?php echo esc_html($cat_name); ?></span></h5>
