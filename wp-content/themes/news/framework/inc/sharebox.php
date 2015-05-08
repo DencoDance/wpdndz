@@ -4,7 +4,7 @@
 	
 	<div class="social-icons clearfix">
 		<ul class="sharebox">
-        	<li><small><?php echo __('Share this story:','framework') ?> </small></li>
+        	<li><small><?php echo __('Поделиться этой новостью:','framework') ?> </small></li>
 			
 			<?php if($admin_data['facebook_share'] == true) { ?>
 			<li class="social-facebook">
