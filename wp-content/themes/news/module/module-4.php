@@ -31,7 +31,12 @@
                                 
                                 <h6 class="regular"><a href="<?php the_permalink();?>"><?php the_title();?></a></h6>
                                 <span class="meta"><?php the_time(get_option('date_format')); ?>  &nbsp; // &nbsp;  <?php the_category(', '); ?>  &nbsp;  //  &nbsp; <?php comments_popup_link(__( 'No Comment', 'framework' ),__( '1 comment', 'framework' ),__( '% Comments', 'framework' ),'',__( 'Comments are off', 'framework' )); ?> </span>
-                                <p><?php echo substr(get_the_excerpt(), 0, 150); ?> ... </p>
+                                <p><?php
+                                    $strpost = iconv('UTF-8','windows-1251',get_the_excerpt() );
+                                    $strpost = substr($strpost, 0, 150);
+                                    $strpost = iconv('windows-1251','UTF-8',$strpost );
+                                    echo $strpost;
+                                    ?>...</p>
     
     							<?php } 
 									endwhile;
@@ -104,7 +109,12 @@
                                 
                                 <h6 class="regular"><a href="<?php the_permalink();?>"><?php the_title();?></a></h6>
                                 <span class="meta"><?php the_time(get_option('date_format')); ?>  &nbsp; // &nbsp;  <?php the_category(', '); ?>  &nbsp;  //  &nbsp; <?php comments_popup_link(__( 'No Comment', 'framework' ),__( '1 comment', 'framework' ),__( '% Comments', 'framework' ),'',__( 'Comments are off', 'framework' )); ?> </span>
-                                <p><?php echo substr(get_the_excerpt(), 0, 150); ?> ... </p>
+                                <p><?php
+                                    $strpost = iconv('UTF-8','windows-1251',get_the_excerpt() );
+                                    $strpost = substr($strpost, 0, 150);
+                                    $strpost = iconv('windows-1251','UTF-8',$strpost );
+                                    echo $strpost;
+                                    ?>...</p>
     
     							<?php } 
 									endwhile;

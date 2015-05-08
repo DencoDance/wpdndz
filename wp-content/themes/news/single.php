@@ -319,14 +319,14 @@
                         
                         
                         
-                        <!-- Authorbox -->
-						<?php if($admin_data['author_box'] == true){ ?>
-                        <div class="authorbox">
-                            <a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_avatar( get_the_author_meta('user_email'), '80', '' ); ?></a>
-                            <h6><?php _e('About the Author : ', 'framework'); ?> <?php the_author_posts_link(); ?></h6>
-                            <p><?php the_author_meta('description'); ?></p>
-                        </div>
-                        <?php } ?>
+                            <!-- Authorbox -->
+<!--						--><?php //if($admin_data['author_box'] == true){ ?>
+<!--                        <div class="authorbox">-->
+<!--                            <a href="--><?php //echo get_author_posts_url(get_the_author_meta( 'ID' )); ?><!--">--><?php //echo get_avatar( get_the_author_meta('user_email'), '80', '' ); ?><!--</a>-->
+<!--                            <h6>--><?php //_e('About the Author : ', 'framework'); ?><!-- --><?php //the_author_posts_link(); ?><!--</h6>-->
+<!--                            <p>--><?php //the_author_meta('description'); ?><!--</p>-->
+<!--                        </div>-->
+<!--                        --><?php //} ?>
                         
                        <!-- Metabox -->
                         <?php if($admin_data['tag_box'] == true){ ?>
@@ -337,8 +337,8 @@
                         <!-- Paginationbox -->
 						<?php if($admin_data['prev_next_box'] == true){ ?>
                         <div class="single-navigation">
-							<span class="alignleft"><?php previous_post_link('%link', __('Previous Post', 'framework')); ?></span>
-                            <span class="alignright"><?php next_post_link('%link', __('Next Post', 'framework')); ?></span>
+							<span class="alignleft"><?php previous_post_link('%link', __('Предыдущая новость', 'framework')); ?></span>
+                            <span class="alignright"><?php next_post_link('%link', __('Следующая новость', 'framework')); ?></span>
                         </div>
                         <?php } ?>
                         
@@ -348,7 +348,7 @@
                         <?php $related = get_related_posts(get_the_ID()); ?>
 						<?php if($related->have_posts()): ?>
                         <div class="relatednews">
-                            <h5 class="line"><span><?php _e('Related News', 'framework') ?></span></h5>
+                            <h5 class="line"><span><?php _e('Похожие новости', 'framework') ?></span></h5>
                             <span class="liner"></span>
                             <ul>
                             	<?php while($related->have_posts()): $related->the_post(); ?>
@@ -357,7 +357,12 @@
                                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('main-small-thumb'); ?></a>
                                     <p>
                                         <span><?php the_time(get_option('date_format')); ?>.</span>
-                                        <a href="<?php the_permalink(); ?>"><?php echo substr(get_the_title(), 0, 41); ?> ...</a>
+                                        <a href="<?php the_permalink(); ?>"><?php
+                                            $strpost = iconv('UTF-8','windows-1251',get_the_title() );
+                                            $strpost = substr($strpost, 0, 41);
+                                            $strpost = iconv('windows-1251','UTF-8',$strpost );
+                                            echo $strpost;
+                                            ?> ...</a>
                                     </p>
                                     <?php
 										$mypassion_review_enable =  get_post_meta(get_the_ID(), 'mypassion_review_enable', true);

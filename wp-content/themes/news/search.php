@@ -16,7 +16,7 @@
                 	<div class="column-two-third">
                         
                         <div class="outerwide">
-                        	<h6><?php printf( __('Search results for &ldquo; %s &rdquo;', 'framework'), get_search_query()); ?></h6>
+                        	<h6><?php printf( __('Результаты поиска для &ldquo; %s &rdquo;', 'framework'), get_search_query()); ?></h6>
                         	<ul class="block2">
                             	<?php $i = 0; ?>
 								<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
@@ -27,7 +27,12 @@
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('main-small-thumb'); ?></a>
                                         <p>
                                             <span><?php the_time(get_option('date_format')); ?>.</span>
-                                            <a href="<?php the_permalink(); ?>"><?php echo substr(get_the_title(), 0, 40); ?> ...</a>
+                                            <a href="<?php the_permalink(); ?>"><?php
+                                                $strpost = iconv('UTF-8','windows-1251',get_the_title() );
+                                                $strpost = substr($strpost, 0, 40);
+                                                $strpost = iconv('windows-1251','UTF-8',$strpost );
+                                                echo $strpost;
+                                                ?>...</a>
                                         </p>
                                         <?php
 											$mypassion_review_enable =  get_post_meta(get_the_ID(), 'mypassion_review_enable', true);
@@ -44,7 +49,7 @@
                                     </div>
                                 </li>
 								<?php } endwhile; endif;?>
-                                <?php if( $i == 0 ) { printf('<li>%s</li>', __('No posts match the search terms', 'framework')); } ?>
+                                <?php if( $i == 0 ) { printf('<li>%s</li>', __('Ничего не найдено по Вашему запросу', 'framework')); } ?>
                             </ul>
                         </div>
                         
